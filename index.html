@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>For Devii Jiii 💌</title>
+<style>
+*{box-sizing:border-box}
+body{
+  margin:0;min-height:100vh;background:#f6eee3;
+  display:flex;justify-content:center;align-items:center;
+  font-family:"Segoe Print","Comic Sans MS",cursive;padding:20px;
+}
+.wrapper{position:relative;width:330px;height:280px}
+.envelope{
+  position:absolute;top:25px;left:0;width:330px;height:220px;
+  background:#d9a7a7;border-radius:8px;
+  box-shadow:0 12px 30px rgba(0,0,0,.18);
+  cursor:pointer;
+}
+.letter{
+  position:absolute;left:5%;top:10px;width:90%;height:195px;
+  background:#fffaf0;border-radius:5px;padding:22px;
+  overflow-y:auto;box-shadow:0 4px 12px rgba(0,0,0,.1);
+  transform:translateY(0);z-index:2;
+  transition:transform .8s ease,height .8s ease;
+}
+.letter h2{text-align:center;color:#8d4f55;margin-top:0}
+.letter p{color:#4d3b35;line-height:1.7;font-size:15px}
+.signature{text-align:right;margin-top:20px;color:#8d4f55;font-weight:bold}
+
+/* This is the front pocket of the envelope.
+   It completely covers the letter while closed. */
+.front{
+  position:absolute;inset:0;background:#d9a7a7;
+  z-index:4;border-radius:8px;overflow:hidden;
+}
+.front:before{
+  content:"";position:absolute;left:0;bottom:0;
+  width:0;height:0;border-left:165px solid transparent;
+  border-right:165px solid transparent;
+  border-bottom:125px solid #cf999b;
+}
+.front:after{
+  content:"";position:absolute;left:0;bottom:0;
+  width:0;height:0;border-left:165px solid transparent;
+  border-right:165px solid transparent;
+  border-bottom:115px solid #d9a7a7;
+  transform:translateY(2px);
+}
+
+/* Flap */
+.flap{
+  position:absolute;top:0;left:0;width:0;height:0;
+  border-left:165px solid transparent;
+  border-right:165px solid transparent;
+  border-top:115px solid #c98f91;
+  transform-origin:top center;
+  transition:transform .8s ease;
+  z-index:6;
+}
+
+/* OPEN */
+.envelope.open .front{
+  z-index:3;
+}
+.envelope.open .letter{
+  transform:translateY(-145px);
+  height:360px;
+  z-index:8;
+}
+.envelope.open .flap{
+  transform:rotateX(180deg);
+  z-index:1;
+}
+
+.hint{
+  position:absolute;top:252px;width:100%;
+  text-align:center;color:#765b57;font-size:14px;
+}
+</style>
+</head>
+<body>
+
+<div class="wrapper">
+  <div class="envelope" id="envelope">
+
+    <div class="letter">
+      <h2>Dear Devii Jiii 🌷</h2>
+
+      <p>I am genuinely sorry. 🥺</p>
+
+      <p>
+        Sorry for cracking jokes at the wrong time,
+        sorry for my stupid mistakes, and especially sorry
+        for not being able to come for the morning running properly.
+      </p>
+
+      <p>
+        Mujhe pata hai ki sirf "sorry" bol dene se meri saari
+        galtiyan magically disappear nahi ho jaati.
+      </p>
+
+      <p>
+        Maine itni saari chhoti-badi galtiyan kar di hain ki
+        kabhi-kabhi mujhe khud lagta hai —
+        <i>"Bhai, itni opportunities kaise mil rahi hain galti karne ki?"</i> 😭
+      </p>
+
+      <p>
+        Aur ek aur cheez ke liye sorry...
+        mujhe aapko <b>ache se manana hi nahi aata.</b>
+        Aap naraz hoti ho aur mera dimaag literally
+        "system error" mode mein chala jata hai. 🫠
+      </p>
+
+      <p>
+        Jokes aside, I really am trying to understand where I go wrong.
+      </p>
+
+      <p>
+        Main perfect nahi hoon, aur shayad meri sabse badi problem
+        ye hai ki mujhe kabhi-kabhi samajh hi nahi aata ki apni
+        feelings aur care ko sahi tareeke se kaise show karun.
+      </p>
+
+      <p>
+        But that doesn't mean I don't care. I do. A lot. 🤍
+      </p>
+
+      <p>
+        Agar meri kisi baat, joke ya action se aapko bura laga hai,
+        then I'm truly sorry.
+      </p>
+
+      <p>
+        Main ye promise nahi karunga ki ab kabhi koi galti nahi hogi,
+        kyunki woh unrealistic hai. But haan, main ye zaroor try
+        karunga ki same mistakes ko repeat na karun.
+      </p>
+
+      <p>
+        Aur jab aap upset ho, tab sirf sorry bolke khatam karne ke
+        bajaye aapko properly samajhne ki koshish karunga.
+      </p>
+
+      <p>
+        Once again, I'm sorry, Devii Jiii.
+        For the jokes, for the running wala scene,
+        for all the silly mistakes, and most importantly,
+        for not knowing how to make things right properly.
+      </p>
+
+      <p><b>I'll try to do better. Not just say it. 🤍</b></p>
+
+      <div class="signature">
+        — Your certified idiot 🫠<br>
+        But a genuinely sorry one. 🌷
+      </div>
+    </div>
+
+    <div class="front"></div>
+    <div class="flap"></div>
+  </div>
+
+  <div class="hint">Tap the envelope to open 💌</div>
+</div>
+
+<script>
+const envelope=document.getElementById("envelope");
+envelope.addEventListener("click",()=>envelope.classList.toggle("open"));
+</script>
+
+</body>
+</html>
